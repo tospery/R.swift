@@ -6,9 +6,6 @@
 //
 
 import Foundation
-#if canImport(FoundationXML)
-import FoundationXML
-#endif
 import RswiftResources
 
 
@@ -63,7 +60,7 @@ internal class NibParserDelegate: NSObject, XMLParserDelegate {
     var isObjectsTagOpened = false;
     var levelSinceObjectsTagOpened = 0;
 
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+    @objc func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         if isObjectsTagOpened {
             levelSinceObjectsTagOpened += 1
         }
@@ -116,7 +113,7 @@ internal class NibParserDelegate: NSObject, XMLParserDelegate {
         }
     }
 
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    @objc func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         switch elementName {
         case "objects":
             isObjectsTagOpened = false;

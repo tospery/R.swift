@@ -94,14 +94,10 @@ As of Rswift 7, Swift Package Manager is the recommended method of installation.
 1. In Project Settings, on the tab "Package Dependencies", click "+" and add `github.com/mac-cain13/R.swift`
 2. Select your target, on the tab "General", in the section "Frameworks, Libraries, and Embeded Content", click "+" and add `RswiftLibrary`
 3. Select your target, on the tab "Build Phases", in the section "Run Build Tool Plug-ins", click "+" and add `RswiftGenerateInternalResources`
-4. Build your project, now the `R` struct should be available in your code, use auto-complete to explore all static references
+4. Right-click on your project, click `RswiftModifyXcodePackages`, click `Run`, click `Allow Command to Change Files`
+5. Build your project, now the `R` struct should be available in your code, use auto-complete to explore all static references
 
 _Screenshot of the Build Phase can be found [here](Documentation/Images/RunBuildToolPluginsRswift.png)_
-
-#### When running on Xcode Cloud
-
-5. Add a [custom build script](https://developer.apple.com/documentation/xcode/writing-custom-build-scripts) in `ci_scripts/ci_post_clone.sh` with the content:
-    `defaults write com.apple.dt.Xcode IDESkipPackagePluginFingerprintValidatation -bool YES`
 
 ### Package.swift based SPM project
 

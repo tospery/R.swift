@@ -6,11 +6,10 @@
 //
 
 import Foundation
-
-#if canImport(SwiftUI)
 import SwiftUI
 
-@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, visionOS 1, *)
+
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Font {
 
     /**
@@ -23,7 +22,7 @@ extension Font {
     /**
      Create a custom font from this resource (`R.font.*`) and a fixed size that does not scale with Dynamic Type.
      */
-    @available(macOS 11, iOS 14, tvOS 14, watchOS 7, visionOS 1, *)
+    @available(macOS 11, iOS 14, tvOS 14, watchOS 7, *)
     public static func custom(_ resource: FontResource, fixedSize: CGFloat) -> Font {
         .custom(resource.name, fixedSize: fixedSize)
     }
@@ -31,12 +30,11 @@ extension Font {
     /**
      Create a custom font from this resource (`R.font.*`) and and size that is relative to the given `textStyle`.
      */
-    @available(macOS 11, iOS 14, tvOS 14, watchOS 7, visionOS 1, *)
+    @available(macOS 11, iOS 14, tvOS 14, watchOS 7, *)
     public static func custom(_ resource: FontResource, size: CGFloat, relativeTo textStyle: Font.TextStyle) -> Font {
         .custom(resource.name, size: size, relativeTo: textStyle)
     }
 }
-#endif
 
 #if canImport(UIKit)
 import UIKit

@@ -6,9 +6,6 @@
 //
 
 import Foundation
-#if canImport(FoundationXML)
-import FoundationXML
-#endif
 import RswiftResources
 
 
@@ -99,7 +96,7 @@ private class StoryboardParserDelegate: NSObject, XMLParserDelegate {
     // State
     var currentViewController: StoryboardResource.ViewController?
 
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+    @objc func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         if let id = attributeDict["id"], isGenerated(id: id) {
             generatedIds.append(id)
         }
@@ -176,7 +173,7 @@ private class StoryboardParserDelegate: NSObject, XMLParserDelegate {
         }
     }
     
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    @objc func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         // We keep the current view controller open to collect segues until the closing scene:
         // <scene>
         //   <viewController>

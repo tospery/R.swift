@@ -13,7 +13,6 @@ import UIKit
 import AppKit
 #endif
 
-#if canImport(UIKit) || canImport(AppKit)
 extension NSDataAsset {
 
     /**
@@ -38,4 +37,3 @@ extension DataResource {
         NSDataAsset(resource: self)?.data
     }
 }
-#endif

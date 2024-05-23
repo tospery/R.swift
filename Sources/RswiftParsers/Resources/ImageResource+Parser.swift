@@ -7,6 +7,8 @@
 
 import Foundation
 import RswiftResources
+import CoreGraphics
+
 
 extension ImageResource: SupportedExtensions {
     // See "Supported Image Formats" on https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/
